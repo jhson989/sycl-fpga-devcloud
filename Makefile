@@ -13,4 +13,4 @@ run:
 	./$(EXE_NAME)
 
 clean: 
-	rm -f $(EXE_NAME)
+	rm -f $(EXE_NAME) *sh.o* *sh.e*
