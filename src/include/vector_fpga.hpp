@@ -34,7 +34,7 @@ double vector_operation(sycl::queue queue, std::vector<T>& A, std::vector<T>& B,
         cgh.single_task( [=] () {
             #pragma unroll 4
             for (int i=0; i<N; i++) {
-                for (int j=0; j<100; j++)
+                for (int j=0; j<20; j++)
                     device_C[i] += (device_A[i] + device_B[i])%j;
             }
         });

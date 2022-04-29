@@ -1,13 +1,16 @@
 CXX = dpcpp
-CXXFLAGS = -O2 -std=c++17
+CXXFLAGS =
 EXE_NAME = vector-operation
 SOURCES = src/main.cpp
 DEVICE = EMU
 
-all: build
+all: build_emu
 
-build:
-	$(CXX) $(CXXFLAGS) -o $(EXE_NAME) $(SOURCES) -DFPGA_${DEVICE}
+build_emu:
+	$(CXX) $(CXXFLAGS) -o $(EXE_NAME) $(SOURCES) -DFPGA_EMU
+
+build_hw:
+	$(CXX) $(CXXFLAGS) -o $(EXE_NAME) $(SOURCES) -DFPGA_HW -fintelfpga -Xshardware
 
 run: 
 	./$(EXE_NAME)
